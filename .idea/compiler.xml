@@ -7,9 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="coupon-calculation-api" />
+        <module name="coupon-template-dao" />
         <module name="coupon-template-impl" />
         <module name="coupon-template-api" />
-        <module name="coupon-template-dao" />
+        <module name="coupon-calculation-impl" />
         <module name="coupon-customer-serv" />
         <module name="middleware" />
       </profile>
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="coupon-calculation-api" options="-parameters" />
+      <module name="coupon-calculation-impl" options="-parameters" />
       <module name="coupon-calculation-serv" options="" />
       <module name="coupon-customer-serv" options="-parameters" />
       <module name="coupon-template-api" options="-parameters" />
