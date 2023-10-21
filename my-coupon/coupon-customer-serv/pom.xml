@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>coupon-customer-api</module>
+        <module>coupon-customer-dao</module>
     </modules>
 
     <properties>
