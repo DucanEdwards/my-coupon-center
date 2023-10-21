@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="coupon-template-impl" />
+        <module name="coupon-calculation-serv" />
+        <module name="coupon-template-api" />
+        <module name="coupon-template-dao" />
+        <module name="coupon-customer-serv" />
+        <module name="middleware" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="15" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="coupon-calculation-serv" options="-parameters" />
+      <module name="coupon-customer-serv" options="-parameters" />
+      <module name="coupon-template-api" options="-parameters" />
+      <module name="coupon-template-dao" options="-parameters" />
+      <module name="coupon-template-impl" options="-parameters" />
+      <module name="coupon-template-serv" options="" />
+      <module name="middleware" options="-parameters" />
+    </option>
+  </component>
+</project>
