@@ -9,6 +9,7 @@
         <module name="coupon-calculation-api" />
         <module name="coupon-customer-dao" />
         <module name="coupon-template-dao" />
+        <module name="coupon-customer-impl" />
         <module name="coupon-template-impl" />
         <module name="coupon-customer-api" />
         <module name="coupon-template-api" />
@@ -25,6 +26,7 @@
       <module name="coupon-calculation-serv" options="" />
       <module name="coupon-customer-api" options="-parameters" />
       <module name="coupon-customer-dao" options="-parameters" />
+      <module name="coupon-customer-impl" options="-parameters" />
       <module name="coupon-customer-serv" options="" />
       <module name="coupon-template-api" options="-parameters" />
       <module name="coupon-template-dao" options="-parameters" />
