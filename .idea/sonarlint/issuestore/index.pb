@@ -75,8 +75,6 @@ xmy-coupon/coupon-calculation-serv/coupon-calculation-api/src/main/java/com/wsz/
 ƒmy-coupon/coupon-calculation-serv/coupon-calculation-api/src/main/java/com/wsz/coupon/calculation/api/beans/SimulationResponse.java,8/e/8e1887641dd00e441613800d03c42dbe491fa900
 ½
 Œmy-coupon/coupon-calculation-serv/coupon-calculation-impl/src/main/java/com/wsz/coupon/calculation/service/CouponCalculationServiceImpl.java,d/2/d24d9eacb79019b0d76612cca59eb8caf2ad28a7
-¥
-umy-coupon/coupon-customer-serv/coupon-customer-api/src/main/java/com/wsz/coupon/customer/api/beans/RequestCoupon.java,e/a/eadd48e7d40889f6e50e78a2ad4251796f6d13a5
 ¤
 tmy-coupon/coupon-customer-serv/coupon-customer-api/src/main/java/com/wsz/coupon/customer/api/enums/CouponStatus.java,9/4/9417042f690b08a8e50339bd0086684e680b8d68
 Ÿ
