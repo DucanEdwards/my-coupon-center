@@ -31,6 +31,12 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
+        <!-- openfeign组件 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- 响应式编程的Webflux组件，提供了异步化的非阻塞功能 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
