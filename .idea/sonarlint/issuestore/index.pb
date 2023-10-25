@@ -23,8 +23,6 @@ j
 Åmy-coupon/coupon-customer-serv/coupon-customer-dao/src/main/java/com/wsz/coupon/customer/dao/converter/CouponStatusConverter.java,3/1/312713e1ab927f2c3cd0a2c16f9014fd1303c511
 ¶
 vmy-coupon/coupon-customer-serv/coupon-customer-impl/src/main/java/com/wsz/coupon/customer/service/CouponConverter.java,0/a/0aa9ac4a639c45ec77e583481b2d633029c1bf80
-¢
-rmy-coupon/coupon-template-serv/coupon-template-api/src/main/java/com/wsz/coupon/template/api/beans/CouponInfo.java,0/a/0a09b1f8e8bbb55129a06d15eb930fe0a68e9e69
 Ø
 my-coupon/coupon-template-serv/coupon-template-api/src/main/java/com/wsz/coupon/template/api/beans/PagedCouponTemplateInfo.java,2/6/26b09b7378072e4c190f548026cc0667034b7a61
 ¨
@@ -67,13 +65,9 @@ xmy-coupon/coupon-calculation-serv/coupon-calculation-api/src/main/java/com/wsz/
 Ämy-coupon/coupon-calculation-serv/coupon-calculation-api/src/main/java/com/wsz/coupon/calculation/api/beans/SimulationOrder.java,8/f/8f081e46738fe4d54bf34fbc83271bd9de3e7950
 æ
 çmy-coupon/coupon-calculation-serv/coupon-calculation-impl/src/main/java/com/wsz/coupon/calculation/service/intf/CouponCalculationService.java,7/3/73cbaeaabd142bf38ff3d796187bd22c77b45013
-¥
-Émy-coupon/coupon-calculation-serv/coupon-calculation-api/src/main/java/com/wsz/coupon/calculation/api/beans/SimulationResponse.java,8/e/8e1887641dd00e441613800d03c42dbe491fa900
 Ω
 åmy-coupon/coupon-calculation-serv/coupon-calculation-impl/src/main/java/com/wsz/coupon/calculation/service/CouponCalculationServiceImpl.java,d/2/d24d9eacb79019b0d76612cca59eb8caf2ad28a7
 §
 tmy-coupon/coupon-customer-serv/coupon-customer-api/src/main/java/com/wsz/coupon/customer/api/enums/CouponStatus.java,9/4/9417042f690b08a8e50339bd0086684e680b8d68
-ü
-omy-coupon/coupon-customer-serv/coupon-customer-dao/src/main/java/com/wsz/coupon/customer/dao/entity/Coupon.java,4/d/4d5eb8c482b3806b6faf42dd948d0ac27a1bae60
 õ
 kmy-coupon/coupon-customer-serv/coupon-customer-dao/src/main/java/com/wsz/coupon/customer/dao/CouponDao.java,f/b/fb33b344441385d21aab39ae8efd6a2bac13e164
