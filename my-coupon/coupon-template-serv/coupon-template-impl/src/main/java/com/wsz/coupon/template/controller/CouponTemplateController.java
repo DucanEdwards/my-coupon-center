@@ -47,14 +47,26 @@ public class CouponTemplateController {
 
     // 批量获取
     @GetMapping("/getBatch")
-    @SentinelResource(value = "getTemplateInBatch", blockHandler = "getTemplateInBatch_block")
+    @SentinelResource(value = "getTemplateInBatch",
+            fallback = "getTemplateInBatch_fallback",
+            // 适用于BlockException，如果和fallback同时使用，在抛出BlockException时优先使用blockHandler指定的方法
+            blockHandler = "getTemplateInBatch_block"
+    )
     public Map<Long, CouponTemplateInfo> getTemplateInBatch(@RequestParam("ids") Collection<Long> ids) {
         log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
         return couponTemplateService.getTemplateInfoMap(ids);
     }
 
+    // 接口被降级时的方法
+    // 大多数执行的是静默逻辑，尽可能返回一个可被服务处理的默认值
+    public Map<Long, CouponTemplateInfo> getTemplateInBatch_fallback(Collection<Long> ids) {
+        log.info("接口被降级");
+        return Maps.newHashMap();
+    }
+
     /**
      * 流控被降级的方法
+     * blockHandler只在服务抛出BlockException后才执行降级逻辑
      * @param ids
      * @param exception
      * @return
