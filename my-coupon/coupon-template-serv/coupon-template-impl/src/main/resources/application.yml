@@ -74,6 +74,18 @@ spring:
         port: 8719
         # dashboard地址
         dashboard: localhost:8081
+      datasource:
+        # 限流的规则key是flow
+        geekbang-flow:
+          nacos:
+            # 设置Nacos的连接地址、命名空间和Group ID
+            server-addr: localhost:8848
+            namespace: dev
+            groupId: SENTINEL_GROUP
+            # 设置Nacos中配置文件的命名规则
+            dataId: ${spring.application.name}-flow-rules
+            # 必填的重要字段，指定当前规则类型是"限流"
+            rule-type: flow
 
 logging:
   level:
