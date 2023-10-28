@@ -86,6 +86,13 @@
             <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
 
+        <!-- Logstash对接 -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+
         <!-- 响应式编程的Webflux组件，提供了异步化的非阻塞功能 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

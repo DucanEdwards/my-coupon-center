@@ -65,6 +65,13 @@
             <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
 
+        <!-- Logstash对接 -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>coupon-template-api</artifactId>
