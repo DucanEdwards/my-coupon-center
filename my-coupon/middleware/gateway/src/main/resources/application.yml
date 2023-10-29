@@ -1,0 +1,40 @@
+server:
+  port: 30000
+spring:
+  # 分布式限流的Redis连接
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    nacos:
+      # Nacos配置项
+      discovery:
+        server-addr: localhost:8848
+        heart-beat-interval: 5000
+        heart-beat-timeout: 15000
+        cluster-name: Cluster-A
+        namespace: dev
+        group: myGroup
+        register-enabled: true
+    gateway:
+      discovery:
+        locator:
+          # 创建默认路由，以"/服务名称/接口地址"的格式规则进行转发
+          # Nacos服务名称本来就是小写，但Eureka默认大写
+          enabled: true
+          lower-case-service-id: true
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            # 授信地址列表
+            allowed-origins:
+              - "http://localhost:10000"
+              - "https://www.geekbang.com"
+            # cookie, authorization认证信息
+            expose-headers: "*"
+            allowed-methods: "*"
+            allow-credentials: true
+            allowed-headers: "*"
+            # 浏览器缓存时间
+            max-age: 1000

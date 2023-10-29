@@ -15,7 +15,7 @@
         <module name="coupon-customer-api" />
         <module name="coupon-template-api" />
         <module name="coupon-calculation-impl" />
-        <module name="middleware" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="15" />
@@ -33,7 +33,8 @@
       <module name="coupon-template-dao" options="-parameters" />
       <module name="coupon-template-impl" options="-parameters" />
       <module name="coupon-template-serv" options="" />
-      <module name="middleware" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="middleware" options="" />
     </option>
   </component>
 </project>

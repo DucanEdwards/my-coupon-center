@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>middleware</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>gateway</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
