@@ -81,8 +81,6 @@ omy-coupon/coupon-customer-serv/coupon-customer-dao/src/main/java/com/wsz/coupon
 ‚my-coupon/coupon-template-serv/coupon-template-impl/src/main/java/com/wsz/coupon/template/controller/CouponTemplateController.java,5/4/54b42b48251e6f323238f6ce850895ee5e5ef702
 ±
 €my-coupon/coupon-customer-serv/coupon-customer-impl/src/main/java/com/wsz/coupon/customer/service/CouponCustomerServiceImpl.java,6/1/61a563e90d3b31a50c8e6c0dc6a30c14c72f80d4
-³
-‚my-coupon/coupon-customer-serv/coupon-customer-impl/src/main/java/com/wsz/coupon/customer/controller/CouponCustomerController.java,6/e/6ef4b8127a498c010a9ed02f7a1c433a6d855c78
 Y
 )my-coupon/coupon-calculation-serv/pom.xml,1/a/1a8222b0ae1fd4a14c7b8fc36f53b6f7f41208be
 š

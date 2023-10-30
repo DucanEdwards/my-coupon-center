@@ -38,3 +38,13 @@ spring:
             allowed-headers: "*"
             # 浏览器缓存时间
             max-age: 1000
+  sleuth:
+    sampler:
+      probability: 1
+      rate: 1000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
