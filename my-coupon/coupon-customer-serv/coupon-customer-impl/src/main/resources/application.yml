@@ -110,6 +110,12 @@ spring:
           binder: my-rabbit
       function:
         definition: addCoupon;deleteCoupon
+      rabbit:
+        bindings:
+          deleteCoupon-in-0:
+            consumer:
+              # 开启死信队列
+              auto-bind-dlq: true
 
 
   sleuth:

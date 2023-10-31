@@ -5,6 +5,8 @@ import com.wsz.coupon.customer.service.intf.CouponCustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.messaging.support.ErrorMessage;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -35,5 +37,14 @@ public class CouponConsumer {
                     .collect(Collectors.toList());
             customerService.deleteCoupon(params.get(0),params.get(1));
         };
+    }
+
+    // 消费失败后触发降级流程
+    // 如果设置了多次本地重试，那么只有最后一次重试失败才会执行这段降级流程
+    @ServiceActivator(inputChannel = "request-coupon-topic.add-coupon-group.errors")
+    public void requestCouponFallback(ErrorMessage errorMessage) {
+        log.info("consumer error: {}", errorMessage);
+
+        throw new RuntimeException("打到死信队列");
     }
 }
