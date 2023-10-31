@@ -83,4 +83,9 @@ public class CouponCustomerController {
         couponProducer.deleteCoupon(userId, couponId);
     }
 
+    @PostMapping("requestCouponDelayEvent")
+    public void requestCouponDelayEvent(@Valid @RequestBody RequestCoupon request) {
+        couponProducer.sendCouponIndelay(request);
+    }
+
 }

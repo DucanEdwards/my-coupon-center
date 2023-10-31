@@ -39,6 +39,15 @@ public class CouponConsumer {
         };
     }
 
+    @Bean
+    public Consumer<RequestCoupon> addCouponDelay() {
+        return request -> {
+            log.info("received: {}", request);
+            customerService.requestCoupon(request);
+        };
+    }
+
+
     // 消费失败后触发降级流程
     // 如果设置了多次本地重试，那么只有最后一次重试失败才会执行这段降级流程
     @ServiceActivator(inputChannel = "request-coupon-topic.add-coupon-group.errors")

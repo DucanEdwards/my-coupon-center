@@ -108,14 +108,35 @@ spring:
           content-type: text/plain
           group: delete-coupon-group
           binder: my-rabbit
+        # 延迟发劵 - producer
+        addCouponDelay-out-0:
+          destination: request-coupon-delayed-topic
+          content-type: application/json
+          binder: my-rabbit
+        # 延迟发劵 - consumer
+        addCouponDelay-in-0:
+          destination: request-coupon-delayed-topic
+          content-type: application/json
+          # 消费者，同一组内只能被消费一次
+          group: add-coupon-group
+          binder: my-rabbit
+          consumer:
+            # 不重试，默认为3次重试
+            max-attempts: 1
       function:
-        definition: addCoupon;deleteCoupon
+        definition: addCoupon;deleteCoupon;addCouponDelay
       rabbit:
         bindings:
           deleteCoupon-in-0:
             consumer:
               # 开启死信队列
               auto-bind-dlq: true
+          addCouponDelay-out-0:
+            producer:
+              delayed-exchange: true
+          addCouponDelay-in-0:
+            consumer:
+              delayed-exchange: true
 
 
   sleuth:
