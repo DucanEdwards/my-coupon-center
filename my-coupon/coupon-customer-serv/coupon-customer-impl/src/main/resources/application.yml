@@ -137,6 +137,9 @@ spring:
           addCouponDelay-in-0:
             consumer:
               delayed-exchange: true
+    alibaba:
+      seata:
+        tx-service-group: seata-server-group
 
 
   sleuth:
@@ -172,4 +175,17 @@ feign:
       coupon-template-serv:
         connectTimeout: 1000
         readTimeout: 2000
+seata:
+  application-id: coupon-customer-serv
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: localhost:8848
+      namespace: dev
+      group: myGroup
+      cluster: default
+  service:
+    vgroup-mapping:
+      seata-server-group: default
 

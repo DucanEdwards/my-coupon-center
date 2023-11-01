@@ -86,6 +86,11 @@ spring:
             dataId: ${spring.application.name}-flow-rules
             # 必填的重要字段，指定当前规则类型是"限流"
             rule-type: flow
+    alibaba:
+      seata:
+        # seata默认txn分组名称，默认是application+一段seata特定字符串
+        # 我随便指定了一段分组
+        tx-service-group: seata-server-group
   sleuth:
     sampler:
       # 采样率的概率，100%采样
@@ -104,3 +109,17 @@ spring:
 logging:
   level:
     com.broadview.coupon: debug
+
+seata:
+  application-id: coupon-template-serv
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: localhost:8848
+      namespace: dev
+      group: myGroup
+      cluster: default
+  service:
+    vgroup-mapping:
+      seata-server-group: default

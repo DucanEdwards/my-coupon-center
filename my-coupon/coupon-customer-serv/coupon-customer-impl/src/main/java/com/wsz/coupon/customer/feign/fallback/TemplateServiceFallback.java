@@ -22,4 +22,9 @@ public class TemplateServiceFallback implements TemplateService {
         log.info("fallback getTemplateInBatch");
         return null;
     }
+
+    @Override
+    public void deleteTemplate(Long id) {
+        log.info("fallback deleteTemplate");
+    }
 }

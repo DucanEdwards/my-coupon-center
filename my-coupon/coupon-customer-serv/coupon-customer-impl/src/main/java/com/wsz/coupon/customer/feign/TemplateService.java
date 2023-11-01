@@ -4,6 +4,7 @@ import com.wsz.coupon.customer.feign.fallback.TemplateServiceFallback;
 import com.wsz.coupon.customer.feign.fallback.TemplateServiceFallbackFactory;
 import com.wsz.coupon.template.api.beans.CouponTemplateInfo;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,4 +23,7 @@ public interface TemplateService {
     // 批量获取
     @GetMapping("/getBatch")
     Map<Long,CouponTemplateInfo> getTemplateInBatch(@RequestParam("ids")Collection<Long> ids);
+
+    @DeleteMapping("/deleteTemplate")
+    void deleteTemplate(@RequestParam("id") Long id);
 }

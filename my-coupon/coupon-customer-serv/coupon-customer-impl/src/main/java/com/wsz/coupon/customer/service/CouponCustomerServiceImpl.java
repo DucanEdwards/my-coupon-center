@@ -240,4 +240,13 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
                 .map(CouponConverter::convertToCoupon)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional
+    public void deleteCouponTemplate(Long templateId) {
+        templateService.deleteTemplate(templateId);
+        couponDao.deleteCouponInBatch(templateId, CouponStatus.INACTIVE);
+        // 模拟分布式异常
+        throw new RuntimeException("AT分布式事务挂了");
+    }
 }

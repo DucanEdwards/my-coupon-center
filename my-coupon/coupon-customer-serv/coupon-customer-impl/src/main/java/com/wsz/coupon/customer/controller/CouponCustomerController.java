@@ -10,6 +10,7 @@ import com.wsz.coupon.customer.dao.entity.Coupon;
 import com.wsz.coupon.customer.event.CouponProducer;
 import com.wsz.coupon.customer.service.intf.CouponCustomerService;
 import com.wsz.coupon.template.api.beans.CouponInfo;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -86,6 +87,12 @@ public class CouponCustomerController {
     @PostMapping("requestCouponDelayEvent")
     public void requestCouponDelayEvent(@Valid @RequestBody RequestCoupon request) {
         couponProducer.sendCouponIndelay(request);
+    }
+
+    @DeleteMapping("template")
+    @GlobalTransactional(name = "coupon-customer-serv", rollbackFor = Exception.class)
+    public void deleteCoupon(@RequestParam("templateId") Long templateId) {
+        customerService.deleteCouponTemplate(templateId);
     }
 
 }
