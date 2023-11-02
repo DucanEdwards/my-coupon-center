@@ -33,8 +33,6 @@ zmy-coupon/coupon-template-serv/coupon-template-api/src/main/java/com/wsz/coupon
 vmy-coupon/coupon-template-serv/coupon-template-api/src/main/java/com/wsz/coupon/template/api/beans/roles/Discount.java,2/9/29e6117e5ba8194ba810b25595af8e7e8269558e
 ¢
 rmy-coupon/coupon-template-serv/coupon-template-api/src/main/java/com/wsz/coupon/template/api/enums/CouponType.java,b/8/b847b2b9c603ea3ebeb4860fb76906727249d7a6
-§
-wmy-coupon/coupon-template-serv/coupon-template-dao/src/main/java/com/wsz/coupon/template/dao/entity/CouponTemplate.java,6/b/6b7ece6f6ff181a4f58c7e4c2a6c5eb80f091342
 ¯
 my-coupon/coupon-template-serv/coupon-template-dao/src/main/java/com/wsz/coupon/template/dao/converter/CouponTypeConverter.java,6/8/6808e00ec9021d32202f15f9c1dc42897dd84f50
 ±

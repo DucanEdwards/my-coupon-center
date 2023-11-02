@@ -55,4 +55,7 @@ public class CouponTemplate {
     @Column(name = "rule", nullable = false)
     @Convert(converter = RuleConverter.class)
     private TemplateRule rule;
+
+    @Column(name = "lockerd",nullable = false)
+    private Boolean locked;
 }

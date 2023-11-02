@@ -8,6 +8,8 @@ import com.wsz.coupon.template.converter.CouponTemplateConverter;
 import com.wsz.coupon.template.dao.CouponTemplateDao;
 import com.wsz.coupon.template.dao.entity.CouponTemplate;
 import com.wsz.coupon.template.service.intf.CouponTemplateService;
+import com.wsz.coupon.template.service.intf.CouponTemplateServiceTCC;
+import io.seata.rm.tcc.api.BusinessActionContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,7 +28,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class CouponTemplateServiceImpl implements CouponTemplateService {
+public class CouponTemplateServiceImpl implements CouponTemplateServiceTCC {
     @Autowired
     private CouponTemplateDao couponTemplateDao;
 
@@ -137,5 +140,49 @@ public class CouponTemplateServiceImpl implements CouponTemplateService {
         return templates.stream()
                 .map(CouponTemplateConverter::converterTemplateinfo)
                 .collect(Collectors.toMap(CouponTemplateInfo::getId, Function.identity()));
+    }
+
+    @Override
+    @Transactional
+    public void deleteTemplateTCC(Long id) {
+        CouponTemplate example = CouponTemplate.builder()
+                .available(true)
+                .locked(false)
+                .id(id)
+                .build();
+        CouponTemplate template = couponTemplateDao.findAll(Example.of(example))
+                .stream().findFirst()
+                .orElseThrow(() -> new RuntimeException("Template Not Found"));
+        template.setLocked(true);
+        couponTemplateDao.save(template);
+    }
+
+    @Override
+    @Transactional
+    // Commit阶段，执行主体业务逻辑，即删除优惠劵
+    public void deleteTemplateCommit(BusinessActionContext context) {
+        Long id = Long.parseLong(context.getActionContext("id").toString());
+        CouponTemplate template = couponTemplateDao.findById(id).get();
+
+        template.setAvailable(false);
+        template.setLocked(false);
+        couponTemplateDao.save(template);
+
+        log.info("TCC committed");
+    }
+
+    @Override
+    @Transactional
+    // 对应TCC的cacal阶段，如果try或Commit阶段发生异常，就会触发全局回滚，将Rollback指令发送给每个分支事务
+    public void deleteTemplateCancel(BusinessActionContext context) {
+        long id = Long.parseLong(context.getActionContext("id").toString());
+        Optional<CouponTemplate> templateOptional = couponTemplateDao.findById(id);
+        if (templateOptional.isPresent()) {
+            CouponTemplate template = templateOptional.get();
+            template.setLocked(false);
+            template.setAvailable(true);
+            couponTemplateDao.save(template);
+        }
+        log.info("TCC cancel");
     }
 }
